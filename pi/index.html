@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>PAXInvoice ETL Cleanner</title>
+<link rel="stylesheet" href="pi.css" type="text/css" />
+<script src="pi.js"></script>
+
+</head>
+<body>
+
+<div align="center">
+<form method="post" name="formulario">
+
+<h3>Please paste (CTRL+V) Control-M log error bellow.</h3>
+<textarea name="input" ></textarea>
+<br/>
+
+<h3 id="explanation">SQL update statments to execute (CTRL+A -> CTRL+C).</h3>
+<textarea id="output_text" name="output" disabled="true"></textarea>
+
+<br/>
+<p align="left">
+<input type="submit" onclick="filter_textarea(input.value);return false;" value="Prepare SQL statements"/>
+<input type="reset" onclick="clear_fields();return true;" value="Reset form"/>
+</p>
+</form>
+</div>
+
+
+</body>
+</html>
