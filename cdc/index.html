@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>InfoSphere Change Data Capture</title>
+
+<link rel="stylesheet" href="cdc.css" type="text/css" />
+
+<script src="cdc.js"></script>
+
+</head>
+<body>
+
+<form method="post" name="formulario"">
+
+<h3>Add new subscription.</h3>
+<table cols="4">
+
+	<col width="200">
+	<col width="150">
+	<col width="50">
+	<col width="200">
+	<col width="150">
+	
+<tr>
+	<td class="caption">Subscription:&nbsp;</td>
+	<td><input type="text" name="subscription" id="subscription" placeholder="SUBSCRIPTION" required></td>
+	<td></td>
+	<td class="caption">Subscription SourceID:&nbsp;</td>
+	<td><input type="text" name="source_id" id="source_id" placeholder="SUBSCRIPTION SOURCE-ID" required></td>
+</tr>
+
+<tr>
+	<td class="caption">Source schema:&nbsp;</td>
+	<td><input type="text" name="source_schema" id="source_schema" placeholder="SOURCE SCHEMA" required></td>
+	<td></td>
+	<td class="caption">Target schema:&nbsp;</td>
+	<td><input type="text" name="target_schema" id="target_schema" placeholder="TARGET SCHEMA" required></td>
+</tr>
+
+<tr>
+	<td class="caption">Source database:&nbsp;</td>
+	<td> <input list="src_dbs" name="source_database" id="source_database" size="30px" placeholder="SOURCE DB" required>
+		<datalist id="src_dbs">
+			<option value="ORACLE_QLT">
+			<option value="ORACLE_PRD">
+			<option value="Z_DEV">
+			<option value="Z_PRD">
+		</datalist>
+	</td>	
+	<td></td>
+	<td class="caption">Target database:&nbsp;</td>
+	<td> <input list="trg_dbs" name="target_database" id="target_database" size="30px" placeholder="TARGET DB" required>
+		<datalist id="trg_dbs">
+			<option value="ORACLE_QLT">
+			<option value="ORACLE_PRD">
+			<option value="Z_DEV">
+			<option value="Z_PRD">
+		</datalist>
+	</td>	
+</tr>
+
+</table>
+<h3>Table names separated by ; (semicolon)</h3>
+<textarea name="input_text" id="input_text" required></textarea>
+<br/>
+
+<h3 id="explanation">Script statements to execute (CTRL+A -> CTRL+C).</h3>
+<textarea id="output_text" name="output" disabled="true"></textarea>
+
+<br/>
+<p align="left">
+<input type="submit" onclick="process_form(this.form);return false;" value="Prepare script statements"/>
+<input type="reset" onclick="clear_fields();return true;" value="Reset form"/>
+</p>
+</form>
+
+
+
+</body>
+</html>
